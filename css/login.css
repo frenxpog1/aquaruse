@@ -1,0 +1,289 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  /* Two Main Colors */
+  --primary-color: #213555;
+  --secondary-color: #DFE5EE;
+
+  /* Applied Colors */
+  --left-bg: var(--secondary-color);
+  --right-bg: var(--primary-color);
+  --primary-text: var(--primary-color);
+  --button-bg: var(--primary-color);
+  --button-text: var(--secondary-color);
+  --link-color: var(--primary-color);
+  --input-border: var(--primary-color);
+  --input-bg: var(--secondary-color);
+
+  /* Typography Sizes */
+  --heading-size: 36px;
+  --label-size: 14px;
+  --input-text-size: 14px;
+  --button-text-size: 16px;
+  --link-text-size: 13px;
+  --brand-name-size: 28px;
+
+  /* Component Dimensions */
+  --input-width: 450px;
+  --input-height: 45px;
+  --button-width: 200px;
+  --button-height: 45px;
+  --border-radius: 8px;
+  --input-padding: 12px;
+  --form-padding-left: 100px;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  height: 100vh;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  background: var(--secondary-color);
+}
+
+.login-split-container {
+  display: flex;
+  height: 100vh;
+}
+
+/* Left side - Login Form */
+.login-left {
+  flex: 0.6;
+  background: var(--left-bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+}
+
+.login-form-container {
+  width: var(--input-width);
+  max-width: var(--input-width);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.login-title {
+  font-size: var(--heading-size);
+  font-weight: bold;
+  color: var(--primary-text);
+  margin-bottom: 40px;
+  text-align: center;
+  width: 100%;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-group label {
+  font-size: var(--label-size);
+  font-weight: normal;
+  color: var(--primary-text);
+}
+
+.form-group input {
+  width: var(--input-width);
+  height: var(--input-height);
+  padding: var(--input-padding);
+  border: 2px solid var(--input-border);
+  border-radius: var(--border-radius);
+  background: var(--input-bg);
+  font-size: var(--input-text-size);
+  color: var(--primary-text);
+  transition: border-color 0.2s;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: var(--primary-color);
+}
+
+.form-group input:hover {
+  border-color: var(--primary-color);
+  opacity: 0.8;
+}
+
+.form-group input::placeholder {
+  color: var(--primary-color);
+  opacity: 0.6;
+}
+
+.password-input-container {
+  position: relative;
+}
+
+.password-toggle {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: var(--primary-color);
+  cursor: pointer;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.password-toggle:hover {
+  opacity: 0.7;
+}
+
+.forgot-password {
+  color: var(--link-color);
+  text-decoration: underline;
+  font-size: var(--link-text-size);
+  font-weight: normal;
+  align-self: flex-start;
+  margin-top: -8px;
+}
+
+.forgot-password:hover {
+  text-decoration: underline;
+}
+
+.sign-in-btn {
+  width: var(--button-width);
+  height: var(--button-height);
+  background: var(--button-bg);
+  color: var(--button-text);
+  border: none;
+  border-radius: var(--border-radius);
+  font-size: var(--button-text-size);
+  font-weight: bold;
+  cursor: pointer;
+  transition: opacity 0.2s;
+  margin: 8px auto 0 auto;
+  text-align: center;
+  display: block;
+}
+
+.sign-in-btn:hover {
+  opacity: 0.8;
+}
+
+.login-error {
+  color: #dc2626;
+  font-size: 14px;
+  margin-top: 8px;
+  display: none;
+}
+
+/* Right side - Logo/Branding */
+.login-right {
+  flex: 0.4;
+  background: var(--right-bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  border-top-left-radius: 48px;
+  border-bottom-left-radius: 48px;
+}
+
+.logo-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+}
+
+.logo-graphic {
+  opacity: 1;
+}
+
+.logo-image {
+  width: 350px;
+  height: 350px;
+  object-fit: contain;
+}
+
+.brand-name {
+  color: var(--button-text);
+  font-size: var(--brand-name-size);
+  font-weight: bold;
+  letter-spacing: -0.02em;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .login-split-container {
+    flex-direction: column;
+  }
+
+  .login-left {
+    flex: 1;
+    padding: 20px;
+    justify-content: center;
+  }
+
+  .login-form-container {
+    width: 100%;
+    max-width: 350px;
+  }
+
+  .login-right {
+    flex: 0.6;
+  }
+
+  .login-title {
+    font-size: 24px;
+    margin-bottom: 32px;
+  }
+
+  .brand-name {
+    font-size: 24px;
+  }
+
+  .logo-graphic svg {
+    width: 150px;
+    height: 150px;
+  }
+
+  .form-group input,
+  .sign-in-btn {
+    width: 100%;
+    max-width: 350px;
+  }
+}
+
+@media (max-width: 480px) {
+  .login-left {
+    padding: 16px;
+  }
+
+  .login-form-container {
+    max-width: 100%;
+  }
+
+  .login-title {
+    font-size: 22px;
+    margin-bottom: 24px;
+  }
+
+  .brand-name {
+    font-size: 20px;
+  }
+
+  .logo-graphic svg {
+    width: 120px;
+    height: 120px;
+  }
+}
